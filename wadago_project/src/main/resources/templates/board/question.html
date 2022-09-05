@@ -6,20 +6,20 @@
 	<body>
 	<header th:insert="header_nav.html"></header>
 	<div class="container">
+		<br><br><br>
 		<h1>질문 작성</h1>
+		<br>
 		<form th:action="@{insertQuestion}" method="post" name="update">
 			<div class="question">
 		  			<p class="input-group" hidden>
-					  <label class="input-group-text">글번호</label>
 					  <input name="board_num" type="number" class="form-control" th:value="${count}+1">
 					</p>
-			  		<p class="input-group">
+			  		<p class="input-group" style="width:12%;">
 					  <label class="input-group-text">작성자</label>
 					  <input name="writer" type="text" class="form-control" th:value="${session.memVo.id}"  readonly>
 					</p>
-					<p class="input-group">
-					  <label class="input-group-text">질문 내용</label>
-					  <input name="contents" type="text" class="form-control" >
+					<label>질문 내용</label>
+					<input name="contents" type="text" class="form-control" style="height:200px;">
 					</p>
 					<button class="btn btn-primary" type="submit" style="float:right">질문 등록</button>
 			</div>

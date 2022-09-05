@@ -33,7 +33,7 @@
 			<div th:each="modify:${question}" class="container">
 				<h1>질문 사항</h1>
 				<div class="question">
-						  <div id="board_num" hidden>[[${modify.board_num}]] </div>	  
+					  <div id="board_num" hidden>[[${modify.board_num}]] </div>	  
 					<p class="input-group">
 						  <label class="input-group-text">작성자</label>
 						  <input name="writer" type="text" class="form-control" th:value="${modify.writer}" readonly>

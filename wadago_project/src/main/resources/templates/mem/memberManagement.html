@@ -18,7 +18,7 @@
 		border: 1px solid #999;
 		padding: 5px;
 		margin: 10px 0px 0px 10px;
-		display: inline-block
+		display: inline-block;
 	}
 
 	.button-div span {
@@ -26,8 +26,19 @@
 		border: 1px solid #999;
 		padding: 5px;
 		margin: 10px 0px 0px 10px;
-		display: inline-block
+		display: inline-block;
 	}
+	.button-div ul {
+		border-radius: 2px;
+		border: 1px solid #999;
+		padding: 5px;
+		margin: 10px 0px 0px 10px;
+		float: left;
+	}
+	td{
+		color:black;
+	}
+	h1 {text-align: center;}
 </style>
     <body>
     <header th:insert="header_nav.html"></header>
@@ -56,32 +67,28 @@
 								th:value="${memList.id}">
 						</td>
 						<td class="memList1"></td>
-						<td th:text="${memList.id}"></td>
-						<td th:text="${memList.pw}"></td>
-						<td th:text="${memList.name}"></td>
-						<td th:text="${memList.phone}"></td>
-						<td th:text="${memList.email}"></td>
-						<td th:text="${memList.birth}"></td>
-						<td th:text="${memList.signup_time}"></td>
-						<td th:text="${memList.grade}"></td>
+						<td class="mem" th:text="${memList.id}"></td>
+						<td class="mem" th:text="${memList.pw}"></td>
+						<td class="mem" th:text="${memList.name}"></td>
+						<td class="mem" th:text="${memList.phone}"></td>
+						<td class="mem" th:text="${memList.email}"></td>
+						<td class="mem" th:text="${memList.birth}"></td>
+						<td class="mem" th:text="${memList.signup_time}"></td>
+						<td class="mem" th:text="${memList.grade}"></td>
 					</tr>
 				</tbody>
 			</table>
+			<button id="del_btn" type="button"  class="btn btn-primary" th:onclick="memberUpdate();" >수정</button>
+			<button id="del_btn" type="button" class="btn btn-danger"  th:onclick="memberDelete();">삭제</button>
 			<div th:with="totalPages=${page.totalPages}, 
 						nowPage=${page.number+1}, 
 						hasNext=${page.hasNext}, 
 						hasPrev=${page.hasPrevious},
 						startPage=${((nowPage-3)<=0)?1:nowPage-3},
 						endPage=${((nowPage+3)>=totalPages)?totalPages:nowPage+3}">
-			<nav th:insert="/pagination.html"> </nav>
-			<div class="button-div pagination justify-content-right">
-				<span>
-					<a th:onclick="memberDelete();">삭제</a>
-				</span>
-				<span>
-					<a th:onclick="memberUpdate();">수정</a>
-				</span>
-			</div>
+
+				<nav th:insert="/pagination.html"> </nav>
+		
 			</div>
 		</div>
 	</div>
